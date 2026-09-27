@@ -26,7 +26,7 @@ export function Logo({
       className={cn("group inline-flex items-center", className)}
     >
       <Image
-        src="/images/seashell-logo.png"
+        src="/images/seashell-logo.png?v=2"
         alt={`${site.name} logo`}
         width={320}
         height={320}
