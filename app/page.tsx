@@ -83,16 +83,16 @@ export default function HomePage() {
           </Reveal>
           <Reveal className="grid gap-6" delay={140}>
             <BeforeAfter
-              beforeSrc="/images/before-house-siding-algae.png"
-              afterSrc="/images/after-house-siding-clean.png"
-              beforeAlt="Home siding before and after soft washing away algae and salt film"
-              afterAlt="Home siding cleaned to a bright, even finish"
+              beforeSrc="/images/house-wash-before.jpg"
+              afterSrc="/images/house-wash-after.png"
+              beforeAlt="Stucco home chimney and facade before house washing, with dark weathering and staining"
+              afterAlt="Stucco home chimney and facade after house washing, with a clean bright finish"
             />
             <BeforeAfter
-              beforeSrc="/images/before-driveway-dirty.png"
-              afterSrc="/images/after-driveway-clean.png"
-              beforeAlt="Concrete driveway before and after pressure washing"
-              afterAlt="Concrete driveway cleaned to an even, bright finish"
+              beforeSrc="/images/driveway-wash-before.jpg"
+              afterSrc="/images/driveway-wash-after.png"
+              beforeAlt="Concrete driveway before pressure washing, with dark staining and weathering"
+              afterAlt="Concrete driveway after pressure washing, with a bright clean finish"
             />
           </Reveal>
         </div>
