@@ -86,13 +86,13 @@ export default function HomePage() {
               beforeSrc="/images/house-wash-before.jpg"
               afterSrc="/images/house-wash-after.png"
               beforeAlt="Stucco home chimney and facade before house washing, with dark weathering and staining"
-              afterAlt="Stucco home chimney and facade after house washing, with a clean bright finish"}]} ,{
+              afterAlt="Stucco home chimney and facade after house washing, with a clean bright finish"
             />
             <BeforeAfter
-              beforeSrc="/images/before-driveway-dirty.png"
-              afterSrc="/images/after-driveway-clean.png"
-              beforeAlt="Concrete driveway before and after pressure washing"
-              afterAlt="Concrete driveway cleaned to an even, bright finish"
+              beforeSrc="/images/driveway-wash-before.jpg"
+              afterSrc="/images/driveway-wash-after.png"
+              beforeAlt="Concrete driveway before pressure washing, with dark staining and weathering"
+              afterAlt="Concrete driveway after pressure washing, with a bright clean finish"
             />
           </Reveal>
         </div>
