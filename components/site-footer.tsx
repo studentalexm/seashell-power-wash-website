@@ -110,6 +110,15 @@ export function SiteFooter() {
               >
                 Y
               </a>
+              <a
+                href={site.social.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Connect with Seashell Power Wash on LinkedIn"
+                className="inline-flex size-9 items-center justify-center rounded-full border border-white/20 text-xs font-bold text-white/80 transition-colors hover:border-white hover:text-white"
+              >
+                in
+              </a>
             </div>
           </nav>
         </div>
