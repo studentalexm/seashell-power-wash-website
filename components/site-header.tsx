@@ -130,7 +130,7 @@ export function SiteHeader() {
           aria-modal="true"
           aria-label="Site menu"
           className={cn(
-            "absolute right-0 top-0 flex h-full w-[85%] max-w-sm flex-col bg-background shadow-xl transition-transform duration-300",
+            "fixed inset-y-0 right-0 z-[60] flex h-screen w-[85%] max-w-sm flex-col overflow-hidden bg-card text-card-foreground shadow-xl transition-transform duration-300",
             open ? "translate-x-0" : "translate-x-full",
           )}
         >
