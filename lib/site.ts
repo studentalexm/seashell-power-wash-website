@@ -34,8 +34,7 @@ export const site = {
     linkedin: "https://www.linkedin.com/in/alexander-mironovich-284b7943a/",
     yelp: "https://www.yelp.com/search?find_desc=Seashell+Power+Wash&find_loc=Mount+Pleasant%2C+SC",
   },
-  // Contact email placeholder — replace with a real inbox before launch.
-  email: "hello@seashellpowerwash.com",
+  email: "clean@seashellpowerwash.com",
 } as const
 
 export const smsHref = (message: string) =>
