@@ -111,6 +111,15 @@ export function SiteFooter() {
                 Y
               </a>
               <a
+                href={site.social.facebook}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Follow Seashell Power Wash on Facebook"
+                className="inline-flex size-9 items-center justify-center rounded-full border border-white/20 text-sm font-bold text-white/80 transition-colors hover:border-white hover:text-white"
+              >
+                f
+              </a>
+              <a
                 href={site.social.linkedin}
                 target="_blank"
                 rel="noreferrer"

@@ -27,7 +27,7 @@ export const site = {
   serviceRegion: "The greater Charleston Lowcountry",
   // Social profiles are intentionally empty until real profiles are supplied.
   social: {
-    facebook: "",
+    facebook: "https://www.facebook.com/profile.php?id=61594911839732",
     instagram: "",
     google: "",
     linkedin: "https://www.linkedin.com/in/alexander-mironovich-284b7943a/",
