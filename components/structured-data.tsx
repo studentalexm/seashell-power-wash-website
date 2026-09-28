@@ -16,9 +16,9 @@ function JsonLd({ data }: { data: Record<string, unknown> }) {
 /**
  * LocalBusiness / HomeAndConstructionBusiness schema.
  *
- * NOTE: Address, geo-coordinates, opening hours, price range, ratings, review
- * counts, and social profiles are intentionally omitted because they were not
- * supplied. Add them here only when you have accurate, real values.
+ * Keep business details synchronized with the verified Google Business Profile.
+ * Do not add review text or rating counts unless they are publicly visible and
+ * can be reproduced accurately.
  */
 export function LocalBusinessSchema() {
   const data = {
@@ -38,10 +38,13 @@ export function LocalBusinessSchema() {
     ],
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Mount Pleasant",
-      addressRegion: "SC",
-      addressCountry: "US",
+      streetAddress: site.address.street,
+      addressLocality: site.address.city,
+      addressRegion: site.address.region,
+      postalCode: site.address.postalCode,
+      addressCountry: site.address.country,
     },
+    sameAs: [site.social.google, site.social.facebook, site.social.instagram, site.social.linkedin, site.social.yelp].filter(Boolean),
     knowsAbout: services.map((s) => s.shortName),
     makesOffer: services.map((s) => ({
       "@type": "Offer",

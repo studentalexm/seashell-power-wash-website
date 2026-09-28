@@ -21,14 +21,20 @@ export const site = {
     // Digits only, used to build sms: links.
     sms: "18433231523",
   },
-  // No public street address is provided; the business serves clients on-site.
+  address: {
+    street: "75 Port City Lndg Ste 110",
+    city: "Mount Pleasant",
+    region: "SC",
+    postalCode: "29464",
+    country: "US",
+  },
   base: "Mount Pleasant, South Carolina",
   primaryMarket: "Charleston and Mount Pleasant, SC",
   serviceRegion: "The greater Charleston Lowcountry",
   // Social profiles are intentionally empty until real profiles are supplied.
   social: {
     facebook: "https://www.facebook.com/profile.php?id=61594911839732",
-    google: "",
+    google: "https://maps.app.goo.gl/uM3TgBjPr3pVFMje7",
     instagram: "https://www.instagram.com/seashellpowerwash/",
     linkedin: "https://www.linkedin.com/in/alexander-mironovich-284b7943a/",
     yelp: "https://www.yelp.com/search?find_desc=Seashell+Power+Wash&find_loc=Mount+Pleasant%2C+SC",
