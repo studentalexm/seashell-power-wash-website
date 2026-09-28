@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server"
+import { Resend } from "resend"
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -51,17 +52,37 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, errors }, { status: 422 })
   }
 
-  // NOTE: No email or database integration is connected yet, so requests are
-  // logged server-side. Connect Resend (email) or a database to deliver or
-  // store these submissions.
-  console.log("[v0] New estimate request:", {
-    name,
-    email,
-    phone,
-    address,
-    message,
-    receivedAt: new Date().toISOString(),
-  })
+  const receivedAt = new Date().toISOString()
+  const fromDomain = process.env.RESEND_EMAIL_DOMAIN || "seashellpowerwash.com"
+  const resend = new Resend(process.env.RESEND_API_KEY)
+  const { error } = await resend.emails.send(
+    {
+      from: `Seashell Power Wash <clean@${fromDomain}>`,
+      to: ["clean@seashellpowerwash.com"],
+      replyTo: email,
+      subject: `New free estimate request from ${name}`,
+      text: [
+        `Name: ${name}`,
+        `Phone: ${phone}`,
+        `Email: ${email}`,
+        `Address: ${address}`,
+        "",
+        "Project details:",
+        message,
+        "",
+        `Received: ${receivedAt}`,
+      ].join("\\n"),
+    },
+    { idempotencyKey: `estimate/${email}-${receivedAt}` },
+  )
+
+  if (error) {
+    console.error("[v0] Estimate email failed:", error.message)
+    return NextResponse.json(
+      { ok: false, error: "We could not send your request. Please try again." },
+      { status: 502 },
+    )
+  }
 
   return NextResponse.json({ ok: true })
 }
