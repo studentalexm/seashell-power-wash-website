@@ -100,7 +100,17 @@ export function SiteFooter() {
                 </li>
               ))}
             </ul>
-            {/* Social profile links appear here once real profiles are supplied. */}
+            <div className="mt-5 flex items-center gap-3" aria-label="Social links">
+              <a
+                href={site.social.yelp}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Find Seashell Power Wash on Yelp"
+                className="inline-flex size-9 items-center justify-center rounded-full border border-white/20 text-sm font-bold text-white/80 transition-colors hover:border-white hover:text-white"
+              >
+                Y
+              </a>
+            </div>
           </nav>
         </div>
 

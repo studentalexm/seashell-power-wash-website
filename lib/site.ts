@@ -30,6 +30,7 @@ export const site = {
     facebook: "",
     instagram: "",
     google: "",
+    yelp: "https://www.yelp.com/search?find_desc=Seashell+Power+Wash&find_loc=Mount+Pleasant%2C+SC",
   },
   // Contact email placeholder — replace with a real inbox before launch.
   email: "hello@seashellpowerwash.com",
