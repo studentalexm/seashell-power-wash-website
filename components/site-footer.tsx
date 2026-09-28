@@ -108,7 +108,7 @@ export function SiteFooter() {
                 aria-label="Find Seashell Power Wash on Yelp"
                 className="inline-flex size-9 items-center justify-center rounded-full border border-white/20 text-sm font-bold text-white/80 transition-colors hover:border-white hover:text-white"
               >
-                Y
+                <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/yelp/light.svg" alt="" aria-hidden="true" className="size-5" />
               </a>
               <a
                 href={site.social.instagram}
@@ -117,7 +117,7 @@ export function SiteFooter() {
                 aria-label="Follow Seashell Power Wash on Instagram"
                 className="inline-flex size-9 items-center justify-center rounded-full border border-white/20 text-sm font-bold text-white/80 transition-colors hover:border-white hover:text-white"
               >
-                ig
+                <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/instagram/light.svg" alt="" aria-hidden="true" className="size-5" />
               </a>
               <a
                 href={site.social.facebook}
@@ -126,7 +126,7 @@ export function SiteFooter() {
                 aria-label="Follow Seashell Power Wash on Facebook"
                 className="inline-flex size-9 items-center justify-center rounded-full border border-white/20 text-sm font-bold text-white/80 transition-colors hover:border-white hover:text-white"
               >
-                f
+                <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/facebook/light.svg" alt="" aria-hidden="true" className="size-5" />
               </a>
               <a
                 href={site.social.linkedin}
@@ -135,7 +135,7 @@ export function SiteFooter() {
                 aria-label="Connect with Seashell Power Wash on LinkedIn"
                 className="inline-flex size-9 items-center justify-center rounded-full border border-white/20 text-xs font-bold text-white/80 transition-colors hover:border-white hover:text-white"
               >
-                in
+                <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/linkedin/light.svg" alt="" aria-hidden="true" className="size-5" />
               </a>
             </div>
           </nav>
