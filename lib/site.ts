@@ -30,6 +30,7 @@ export const site = {
     facebook: "https://www.facebook.com/profile.php?id=61594911839732",
     instagram: "",
     google: "",
+    instagram: "https://www.instagram.com/seashellpowerwash/",
     linkedin: "https://www.linkedin.com/in/alexander-mironovich-284b7943a/",
     yelp: "https://www.yelp.com/search?find_desc=Seashell+Power+Wash&find_loc=Mount+Pleasant%2C+SC",
   },
