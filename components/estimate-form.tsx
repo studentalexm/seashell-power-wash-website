@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { CheckCircle2, Loader2 } from "lucide-react"
-import { serviceNames } from "@/lib/services"
 
 type Errors = Record<string, string>
 
@@ -141,77 +140,47 @@ export function EstimateForm() {
           )}
         </div>
 
-        <div className="sm:col-span-1">
-          <label htmlFor="location" className={labelClass}>
-            City / Neighborhood <span className="text-destructive">*</span>
+        <div className="sm:col-span-2">
+          <label htmlFor="address" className={labelClass}>
+            Address <span className="text-destructive">*</span>
           </label>
           <input
-            id="location"
-            name="location"
+            id="address"
+            name="address"
             type="text"
-            autoComplete="address-level2"
+            autoComplete="street-address"
             required
-            aria-invalid={Boolean(errors.location)}
-            aria-describedby={errors.location ? "location-error" : undefined}
+            aria-invalid={Boolean(errors.address)}
+            aria-describedby={errors.address ? "address-error" : undefined}
             className={inputClass}
-            placeholder="e.g. Mount Pleasant"
+            placeholder="Your service address"
           />
-          {errors.location && (
-            <p id="location-error" className="mt-1.5 text-sm text-destructive">
-              {errors.location}
+          {errors.address && (
+            <p id="address-error" className="mt-1.5 text-sm text-destructive">
+              {errors.address}
             </p>
-          )}
-        </div>
-
-        <div className="sm:col-span-1">
-          <label htmlFor="propertyType" className={labelClass}>
-            Property type
-          </label>
-          <select
-            id="propertyType"
-            name="propertyType"
-            defaultValue="Residential"
-            className={inputClass}
-          >
-            <option value="Residential">Residential</option>
-            <option value="Commercial">Commercial</option>
-          </select>
-        </div>
-
-        <div className="sm:col-span-2">
-          <label htmlFor="service" className={labelClass}>
-            Service needed
-          </label>
-          <select
-            id="service"
-            name="service"
-            defaultValue="Not sure yet"
-            aria-invalid={Boolean(errors.service)}
-            className={inputClass}
-          >
-            <option value="Not sure yet">Not sure yet</option>
-            {serviceNames.map((service) => (
-              <option key={service} value={service}>
-                {service}
-              </option>
-            ))}
-          </select>
-          {errors.service && (
-            <p className="mt-1.5 text-sm text-destructive">{errors.service}</p>
           )}
         </div>
 
         <div className="sm:col-span-2">
           <label htmlFor="message" className={labelClass}>
-            Tell us about your project
+            Tell us about your project <span className="text-destructive">*</span>
           </label>
           <textarea
             id="message"
             name="message"
-            rows={4}
+            rows={5}
+            required
+            aria-invalid={Boolean(errors.message)}
+            aria-describedby={errors.message ? "message-error" : undefined}
             className={inputClass}
-            placeholder="What would you like cleaned? Anything we should know about the property?"
+            placeholder="Be as specific as you like"
           />
+          {errors.message && (
+            <p id="message-error" className="mt-1.5 text-sm text-destructive">
+              {errors.message}
+            </p>
+          )}
         </div>
 
         {/* Honeypot field for spam bots; hidden from real users. */}

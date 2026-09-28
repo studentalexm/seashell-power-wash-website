@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server"
-import { serviceNames } from "@/lib/services"
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -8,8 +7,7 @@ type EstimatePayload = {
   email?: unknown
   phone?: unknown
   location?: unknown
-  service?: unknown
-  propertyType?: unknown
+  address?: unknown
   message?: unknown
   // Honeypot field; real users leave it empty.
   company?: unknown
@@ -38,9 +36,7 @@ export async function POST(request: Request) {
   const name = asString(body.name)
   const email = asString(body.email)
   const phone = asString(body.phone)
-  const location = asString(body.location)
-  const service = asString(body.service)
-  const propertyType = asString(body.propertyType)
+  const address = asString(body.address)
   const message = asString(body.message)
 
   const errors: Record<string, string> = {}
@@ -48,9 +44,8 @@ export async function POST(request: Request) {
   if (!EMAIL_RE.test(email)) errors.email = "Please enter a valid email."
   if (phone.replace(/\D/g, "").length < 10)
     errors.phone = "Please enter a valid phone number."
-  if (!location) errors.location = "Please tell us your city or neighborhood."
-  if (service && !serviceNames.includes(service) && service !== "Not sure yet")
-    errors.service = "Please choose a valid service."
+  if (!address) errors.address = "Please enter the service address."
+  if (!message) errors.message = "Please tell us about your project."
 
   if (Object.keys(errors).length > 0) {
     return NextResponse.json({ ok: false, errors }, { status: 422 })
@@ -63,9 +58,7 @@ export async function POST(request: Request) {
     name,
     email,
     phone,
-    location,
-    service: service || "Not specified",
-    propertyType: propertyType || "Not specified",
+    address,
     message,
     receivedAt: new Date().toISOString(),
   })
