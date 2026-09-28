@@ -100,7 +100,44 @@ export function SiteFooter() {
                 </li>
               ))}
             </ul>
-            {/* Social profile links appear here once real profiles are supplied. */}
+            <div className="mt-5 flex items-center gap-3" aria-label="Social links">
+              <a
+                href={site.social.yelp}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Find Seashell Power Wash on Yelp"
+                className="inline-flex size-9 items-center justify-center rounded-full border border-white/20 text-sm font-bold text-white/80 transition-colors hover:border-white hover:text-white"
+              >
+                <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/yelp/light.svg" alt="" aria-hidden="true" className="size-5" />
+              </a>
+              <a
+                href={site.social.instagram}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Follow Seashell Power Wash on Instagram"
+                className="inline-flex size-9 items-center justify-center rounded-full border border-white/20 text-sm font-bold text-white/80 transition-colors hover:border-white hover:text-white"
+              >
+                <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/instagram/light.svg" alt="" aria-hidden="true" className="size-5" />
+              </a>
+              <a
+                href={site.social.facebook}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Follow Seashell Power Wash on Facebook"
+                className="inline-flex size-9 items-center justify-center rounded-full border border-white/20 text-sm font-bold text-white/80 transition-colors hover:border-white hover:text-white"
+              >
+                <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/facebook/light.svg" alt="" aria-hidden="true" className="size-5" />
+              </a>
+              <a
+                href={site.social.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Connect with Seashell Power Wash on LinkedIn"
+                className="inline-flex size-9 items-center justify-center rounded-full border border-white/20 text-xs font-bold text-white/80 transition-colors hover:border-white hover:text-white"
+              >
+                <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/linkedin/light.svg" alt="" aria-hidden="true" className="size-5" />
+              </a>
+            </div>
           </nav>
         </div>
 
