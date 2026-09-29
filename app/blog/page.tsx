@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { blogPosts, formatDate } from "@/lib/blog"
-import { getWordPressPosts } from "@/lib/wordpress"
+import { getSanityPosts } from "@/lib/sanity"
 import { pageMetadata } from "@/lib/seo"
 import { PageHero } from "@/components/page-hero"
 import { Section } from "@/components/section"
@@ -17,7 +17,19 @@ export const metadata: Metadata = pageMetadata({
 })
 
 export default async function BlogPage() {
-  const posts = (await getWordPressPosts()) ?? blogPosts
+  const sanityPosts = await getSanityPosts()
+  const posts = sanityPosts.length
+    ? sanityPosts.map((post) => ({
+        slug: post.slug?.current ?? post._id,
+        title: post.title ?? "Untitled post",
+        excerpt: post.excerpt ?? "",
+        date: post.publishedAt ?? new Date().toISOString(),
+        category: post.category ?? "Tips",
+        image: post.imageUrl ?? "/images/placeholder.svg",
+        imageAlt: post.title ?? "Seashell Power Wash blog post",
+        readingTime: "5 min read",
+      }))
+    : blogPosts
   const [featured, ...rest] = posts
 
   return (
