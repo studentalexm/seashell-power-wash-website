@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { blogPosts, formatDate } from "@/lib/blog"
+import { getWordPressPosts } from "@/lib/wordpress"
 import { pageMetadata } from "@/lib/seo"
 import { PageHero } from "@/components/page-hero"
 import { Section } from "@/components/section"
@@ -15,8 +16,9 @@ export const metadata: Metadata = pageMetadata({
   path: "/blog",
 })
 
-export default function BlogPage() {
-  const [featured, ...rest] = blogPosts
+export default async function BlogPage() {
+  const posts = (await getWordPressPosts()) ?? blogPosts
+  const [featured, ...rest] = posts
 
   return (
     <>
