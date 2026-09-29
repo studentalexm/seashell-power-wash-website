@@ -5,6 +5,7 @@ import { site } from "@/lib/site"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { MobileEstimateBar } from "@/components/mobile-estimate-bar"
+import { SiteChrome } from "@/components/site-chrome"
 import { LocalBusinessSchema } from "@/components/structured-data"
 import "./globals.css"
 
@@ -53,16 +54,9 @@ export default function RootLayout({
     <html lang="en" className={`light bg-background ${inter.variable} ${fraunces.variable}`}>
       <body className="antialiased">
         <LocalBusinessSchema />
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
-        >
-          Skip to main content
-        </a>
-        <SiteHeader />
-        <main id="main-content">{children}</main>
-        <SiteFooter />
-        <MobileEstimateBar />
+        <SiteChrome header={<SiteHeader />} footer={<SiteFooter />} mobileBar={<MobileEstimateBar />}>
+          {children}
+        </SiteChrome>
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
