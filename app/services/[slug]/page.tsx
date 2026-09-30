@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { getService, services } from "@/lib/services"
+import { getService, getServices } from "@/lib/cms"
 import { pageMetadata } from "@/lib/seo"
 import { PageHero } from "@/components/page-hero"
 import { Section, Eyebrow } from "@/components/section"
@@ -13,8 +13,10 @@ import { CtaBand } from "@/components/cta-band"
 import { EstimateButton, CallButton } from "@/components/site-buttons"
 import { ServiceSchema, FAQSchema } from "@/components/structured-data"
 
-export function generateStaticParams() {
-  return services.map((service) => ({ slug: service.slug }))
+export const revalidate = 60
+
+export async function generateStaticParams() {
+  return (await getServices()).map((service) => ({ slug: service.slug }))
 }
 
 export async function generateMetadata({
@@ -23,7 +25,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  const service = getService(slug)
+  const service = await getService(slug)
   if (!service) return {}
   return pageMetadata({
     title: service.metaTitle,
@@ -39,11 +41,12 @@ export default async function ServicePage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const service = getService(slug)
+  const allServices = await getServices()
+  const service = allServices.find((s) => s.slug === slug)
   if (!service) notFound()
 
   const related = service.related
-    .map((s) => getService(s))
+    .map((s) => allServices.find((item) => item.slug === s))
     .filter((s): s is NonNullable<typeof s> => Boolean(s))
 
   return (

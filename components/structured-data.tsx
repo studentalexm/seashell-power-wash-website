@@ -1,3 +1,4 @@
+import { getBusiness } from "@/lib/cms"
 import { site } from "@/lib/site"
 import { services } from "@/lib/services"
 import { locations } from "@/lib/locations"
@@ -20,15 +21,16 @@ function JsonLd({ data }: { data: Record<string, unknown> }) {
  * Do not add review text or rating counts unless they are publicly visible and
  * can be reproduced accurately.
  */
-export function LocalBusinessSchema() {
+export async function LocalBusinessSchema() {
+  const business = await getBusiness()
   const data = {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     "@id": `${site.url}/#business`,
-    name: site.name,
+    name: business.name,
     description: site.description,
     url: site.url,
-    telephone: site.phone.e164,
+    telephone: business.phone.e164,
     image: `${site.url}/images/og-seashell-power-wash.png`,
     logo: `${site.url}/images/seashell-logo.png`,
     areaServed: [
@@ -38,13 +40,13 @@ export function LocalBusinessSchema() {
     ],
     address: {
       "@type": "PostalAddress",
-      streetAddress: site.address.street,
-      addressLocality: site.address.city,
-      addressRegion: site.address.region,
-      postalCode: site.address.postalCode,
-      addressCountry: site.address.country,
+      streetAddress: business.address.street,
+      addressLocality: business.address.city,
+      addressRegion: business.address.region,
+      postalCode: business.address.postalCode,
+      addressCountry: business.address.country,
     },
-    sameAs: [site.social.google, site.social.facebook, site.social.instagram, site.social.linkedin, site.social.yelp].filter(Boolean),
+    sameAs: [business.social.google, business.social.facebook, business.social.instagram, business.social.linkedin, business.social.yelp].filter(Boolean),
     knowsAbout: services.map((s) => s.shortName),
     makesOffer: services.map((s) => ({
       "@type": "Offer",

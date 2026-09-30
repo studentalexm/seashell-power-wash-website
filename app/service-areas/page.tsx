@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { locations } from "@/lib/locations"
+import { getLocations } from "@/lib/cms"
 import { pageMetadata } from "@/lib/seo"
 import { PageHero } from "@/components/page-hero"
 import { Section } from "@/components/section"
@@ -15,7 +15,10 @@ export const metadata: Metadata = pageMetadata({
   path: "/service-areas",
 })
 
-export default function ServiceAreasPage() {
+export const revalidate = 60
+
+export default async function ServiceAreasPage() {
+  const locations = await getLocations()
   return (
     <>
       <PageHero

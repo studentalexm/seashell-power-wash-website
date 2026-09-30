@@ -2,8 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { getLocation, locations } from "@/lib/locations"
-import { services } from "@/lib/services"
+import { getLocation, getLocations, getServices } from "@/lib/cms"
 import { pageMetadata } from "@/lib/seo"
 import { PageHero } from "@/components/page-hero"
 import { Section, Eyebrow } from "@/components/section"
@@ -13,8 +12,10 @@ import { CtaBand } from "@/components/cta-band"
 import { EstimateButton, CallButton } from "@/components/site-buttons"
 import { FAQSchema } from "@/components/structured-data"
 
-export function generateStaticParams() {
-  return locations.map((location) => ({ slug: location.slug }))
+export const revalidate = 60
+
+export async function generateStaticParams() {
+  return (await getLocations()).map((location) => ({ slug: location.slug }))
 }
 
 export async function generateMetadata({
@@ -23,7 +24,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  const location = getLocation(slug)
+  const location = await getLocation(slug)
   if (!location) return {}
   return pageMetadata({
     title: location.metaTitle,
@@ -39,7 +40,8 @@ export default async function LocationPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const location = getLocation(slug)
+  const [locations, services] = await Promise.all([getLocations(), getServices()])
+  const location = locations.find((l) => l.slug === slug)
   if (!location) notFound()
 
   return (

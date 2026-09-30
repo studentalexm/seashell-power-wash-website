@@ -4,7 +4,8 @@ import { pageMetadata } from "@/lib/seo"
 import { PageHero } from "@/components/page-hero"
 import { Section } from "@/components/section"
 import { EstimateForm } from "@/components/estimate-form"
-import { site, telHref, smsHref } from "@/lib/site"
+import { site } from "@/lib/site"
+import { getBusiness } from "@/lib/cms"
 
 export const metadata: Metadata = pageMetadata({
   title: "Get a Free Estimate",
@@ -13,7 +14,9 @@ export const metadata: Metadata = pageMetadata({
   path: "/contact",
 })
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const business = await getBusiness()
+  const smsHref = (message: string) => `sms:${business.phone.e164}?&body=${encodeURIComponent(message)}`
   return (
     <>
       <PageHero
@@ -36,7 +39,7 @@ export default function ContactPage() {
 
             <div className="mt-8 space-y-4">
               <a
-                href={telHref}
+                href={business.telHref}
                 className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-sm transition-colors hover:border-accent hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-secondary text-primary">
@@ -47,7 +50,7 @@ export default function ContactPage() {
                     Call us
                   </span>
                   <span className="block font-medium text-foreground">
-                    {site.phone.display}
+                    {business.phone.display}
                   </span>
                 </span>
               </a>
@@ -64,7 +67,7 @@ export default function ContactPage() {
                     Text us
                   </span>
                   <span className="block font-medium text-foreground">
-                    {site.phone.display}
+                    {business.phone.display}
                   </span>
                 </span>
               </a>
@@ -78,7 +81,7 @@ export default function ContactPage() {
                     Based in
                   </span>
                   <span className="block font-medium text-foreground">
-                    {site.base}
+                    {business.base}
                   </span>
                 </span>
               </div>

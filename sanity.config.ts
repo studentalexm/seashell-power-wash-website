@@ -6,6 +6,7 @@ import {schemaTypes} from './sanity/schemaTypes'
 export default defineConfig({
   name: 'seashell-power-wash',
   title: 'Seashell Power Wash',
+  basePath: '/studio',
   projectId: 'cmthxaec',
   dataset: 'production',
   plugins: [structureTool(), visionTool()],
