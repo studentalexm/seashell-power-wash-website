@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next"
 import { Inter, Fraunces } from "next/font/google"
 import { site } from "@/lib/site"
 import { SiteHeader } from "@/components/site-header"
+import { getBusiness } from "@/lib/cms"
 import { SiteFooter } from "@/components/site-footer"
 import { MobileEstimateBar } from "@/components/mobile-estimate-bar"
 import { SiteChrome } from "@/components/site-chrome"
@@ -45,16 +46,17 @@ export const viewport: Viewport = {
   themeColor: "#0f3a5c",
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const business = await getBusiness()
   return (
     <html lang="en" className={`light bg-background ${inter.variable} ${fraunces.variable}`}>
       <body className="antialiased">
         <LocalBusinessSchema />
-        <SiteChrome header={<SiteHeader />} footer={<SiteFooter />} mobileBar={<MobileEstimateBar />}>
+        <SiteChrome header={<SiteHeader phone={business.phone.display} telHref={business.telHref} />} footer={<SiteFooter />} mobileBar={<MobileEstimateBar />}>
           {children}
         </SiteChrome>
         {process.env.NODE_ENV === "production" && <Analytics />}

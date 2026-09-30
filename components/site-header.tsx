@@ -5,12 +5,11 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ChevronDown, Menu, Phone, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { site, telHref } from "@/lib/site"
 import { mainNav } from "@/lib/nav"
 import { Logo } from "./logo"
 import { EstimateButton } from "./site-buttons"
 
-export function SiteHeader() {
+export function SiteHeader({ phone, telHref }: { phone: string; telHref: string }) {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [expanded, setExpanded] = useState<string | null>(null)
@@ -92,7 +91,7 @@ export function SiteHeader() {
             className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
           >
             <Phone className="size-4" aria-hidden="true" />
-            {site.phone.display}
+            {phone}
           </a>
           <EstimateButton size="sm" label="Free Estimate" />
         </div>
@@ -215,7 +214,7 @@ export function SiteHeader() {
               className="mt-3 flex items-center justify-center gap-2 text-sm font-medium text-foreground"
             >
               <Phone className="size-4" aria-hidden="true" />
-              {site.phone.display}
+              {phone}
             </a>
           </div>
         </div>

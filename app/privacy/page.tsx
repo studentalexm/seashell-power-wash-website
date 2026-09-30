@@ -3,7 +3,7 @@ import { pageMetadata } from "@/lib/seo"
 import { PageHero } from "@/components/page-hero"
 import { Section } from "@/components/section"
 import { LegalContent, type LegalBlock } from "@/components/legal-content"
-import { site } from "@/lib/site"
+import { getBusiness, type Business } from "@/lib/cms"
 
 export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
@@ -12,7 +12,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/privacy",
 })
 
-const blocks: LegalBlock[] = [
+const buildBlocks = (site: Business): LegalBlock[] => [
   {
     heading: "Overview",
     paragraphs: [
@@ -63,7 +63,7 @@ const blocks: LegalBlock[] = [
   },
 ]
 
-export default function PrivacyPage() {
+export default async function PrivacyPage() {
   return (
     <>
       <PageHero
@@ -73,7 +73,7 @@ export default function PrivacyPage() {
         crumbs={[{ name: "Privacy Policy", href: "/privacy" }]}
       />
       <Section>
-        <LegalContent blocks={blocks} />
+        <LegalContent blocks={buildBlocks(await getBusiness())} />
       </Section>
     </>
   )

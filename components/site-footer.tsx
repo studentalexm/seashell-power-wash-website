@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Phone, Mail, MapPin } from "lucide-react"
-import { site, telHref } from "@/lib/site"
+import { getBusiness } from "@/lib/cms"
 import { footerServiceLinks, footerLocationLinks } from "@/lib/nav"
 import { Logo } from "./logo"
 
@@ -13,7 +13,8 @@ const company = [
   { label: "Contact / Free Estimate", href: "/contact" },
 ]
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  const business = await getBusiness()
   const year = new Date().getFullYear()
   return (
     <footer className="border-t border-border bg-ocean-deep text-white">
@@ -28,22 +29,22 @@ export function SiteFooter() {
             </p>
             <div className="mt-5 flex flex-col gap-2.5 text-sm">
               <a
-                href={telHref}
+                href={business.telHref}
                 className="inline-flex items-center gap-2 text-white/90 transition-colors hover:text-white"
               >
                 <Phone className="size-4" aria-hidden="true" />
-                {site.phone.display}
+                {business.phone.display}
               </a>
               <a
-                href={`mailto:${site.email}`}
+                href={`mailto:${business.email}`}
                 className="inline-flex items-center gap-2 text-white/90 transition-colors hover:text-white"
               >
                 <Mail className="size-4" aria-hidden="true" />
-                {site.email}
+                {business.email}
               </a>
               <span className="inline-flex items-center gap-2 text-white/70">
                 <MapPin className="size-4" aria-hidden="true" />
-                Based in {site.base}
+                Based in {business.base}
               </span>
             </div>
           </div>
@@ -102,7 +103,7 @@ export function SiteFooter() {
             </ul>
             <div className="mt-5 flex items-center gap-3" aria-label="Social links">
               <a
-                href={site.social.yelp}
+                href={business.social.yelp}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Find Seashell Power Wash on Yelp"
@@ -111,7 +112,7 @@ export function SiteFooter() {
                 <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/yelp/light.svg" alt="" aria-hidden="true" className="size-5" />
               </a>
               <a
-                href={site.social.instagram}
+                href={business.social.instagram}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Follow Seashell Power Wash on Instagram"
@@ -120,7 +121,7 @@ export function SiteFooter() {
                 <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/instagram/light.svg" alt="" aria-hidden="true" className="size-5" />
               </a>
               <a
-                href={site.social.facebook}
+                href={business.social.facebook}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Follow Seashell Power Wash on Facebook"
@@ -129,7 +130,7 @@ export function SiteFooter() {
                 <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/facebook/light.svg" alt="" aria-hidden="true" className="size-5" />
               </a>
               <a
-                href={site.social.linkedin}
+                href={business.social.linkedin}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Connect with Seashell Power Wash on LinkedIn"
@@ -143,7 +144,7 @@ export function SiteFooter() {
 
         <div className="mt-12 flex flex-col gap-4 border-t border-white/15 pt-6 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            &copy; {year} {site.legalName}. All rights reserved.
+            &copy; {year} {business.legalName}. All rights reserved.
           </p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             <Link href="/privacy" className="transition-colors hover:text-white">

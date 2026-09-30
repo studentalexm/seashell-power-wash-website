@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Phone } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { site, telHref } from "@/lib/site"
+import { getBusiness } from "@/lib/cms"
 
 const base =
   "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50"
@@ -40,7 +40,7 @@ export function EstimateButton({
 }
 
 /** Click-to-call button. */
-export function CallButton({
+export async function CallButton({
   className,
   size = "default",
   variant = "outline",
@@ -51,6 +51,7 @@ export function CallButton({
   variant?: "outline" | "solid" | "ghost"
   showNumber?: boolean
 }) {
+  const business = await getBusiness()
   const variants = {
     outline: "border border-border bg-background text-foreground hover:bg-secondary",
     solid: "bg-accent text-accent-foreground hover:bg-accent/85",
@@ -58,12 +59,12 @@ export function CallButton({
   }
   return (
     <a
-      href={telHref}
+      href={business.telHref}
       className={cn(base, sizes[size], variants[variant], className)}
-      aria-label={`Call ${site.name} at ${site.phone.display}`}
+      aria-label={`Call ${business.name} at ${business.phone.display}`}
     >
       <Phone className="size-4" aria-hidden="true" />
-      {showNumber ? `Call ${site.phone.display}` : "Call Now"}
+      {showNumber ? `Call ${business.phone.display}` : "Call Now"}
     </a>
   )
 }

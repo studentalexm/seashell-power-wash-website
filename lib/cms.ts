@@ -1,3 +1,5 @@
+import { cache } from "react"
+import { site as staticSite } from "@/lib/site"
 import { Sparkles } from "lucide-react"
 import { sanityClient } from "@/lib/sanity"
 import { services as staticServices, type Service } from "@/lib/services"
@@ -268,3 +270,63 @@ export async function getTestimonials(): Promise<Testimonial[] | null> {
     where: doc.location,
   }))
 }
+
+type SanityBusiness = {
+  businessName?: string
+  email?: string
+  phone?: string
+  street?: string
+  city?: string
+  region?: string
+  postalCode?: string
+  googleReviewUrl?: string
+}
+
+function phoneParts(input: string | undefined) {
+  const digits = input?.replace(/\D/g, "") ?? ""
+  const national = digits.length === 11 && digits.startsWith("1") ? digits.slice(1) : digits
+  if (national.length !== 10) return staticSite.phone
+  return {
+    display: `(${national.slice(0, 3)}) ${national.slice(3, 6)}-${national.slice(6)}`,
+    e164: `+1${national}`,
+    sms: `1${national}`,
+  }
+}
+
+export type Business = {
+  name: string
+  legalName: string
+  email: string
+  phone: { display: string; e164: string; sms: string }
+  telHref: string
+  address: { street: string; city: string; region: string; postalCode: string; country: string }
+  base: string
+  social: Record<keyof typeof staticSite.social, string>
+}
+
+export const getBusiness = cache(async (): Promise<Business> => {
+  const doc = await query<SanityBusiness | null>(
+    `*[_type == "businessSettings"][0]{businessName, email, phone, street, city, region, postalCode, googleReviewUrl}`,
+    "businessSettings",
+  )
+  const phone = phoneParts(doc?.phone)
+  const city = doc?.city?.trim() || staticSite.address.city
+  const region = doc?.region?.trim() || staticSite.address.region
+  const name = doc?.businessName?.trim() || staticSite.name
+  return {
+    name,
+    legalName: name,
+    email: doc?.email?.trim() || staticSite.email,
+    phone,
+    telHref: `tel:${phone.e164}`,
+    address: {
+      street: doc?.street?.trim() || staticSite.address.street,
+      city,
+      region,
+      postalCode: doc?.postalCode?.trim() || staticSite.address.postalCode,
+      country: staticSite.address.country,
+    },
+    base: doc?.city || doc?.region ? `${city}, ${region}` : staticSite.base,
+    social: { ...staticSite.social, google: doc?.googleReviewUrl?.trim() || staticSite.social.google },
+  }
+})
