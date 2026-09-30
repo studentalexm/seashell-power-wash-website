@@ -1,8 +1,9 @@
 import Link from "next/link"
 import { MapPin, ArrowRight } from "lucide-react"
-import { locations } from "@/lib/locations"
+import { getLocations } from "@/lib/cms"
 
-export function ServiceAreasPreview() {
+export async function ServiceAreasPreview() {
+  const locations = await getLocations()
   return (
     <div>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">

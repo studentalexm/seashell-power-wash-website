@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import { pageMetadata } from "@/lib/seo"
+import { getGalleryImages } from "@/lib/cms"
 import { PageHero } from "@/components/page-hero"
 import { Section, Eyebrow } from "@/components/section"
 import { BeforeAfter } from "@/components/before-after"
@@ -48,7 +49,10 @@ const projectImages = [
   },
 ]
 
-export default function GalleryPage() {
+export const revalidate = 60
+
+export default async function GalleryPage() {
+  const galleryImages = (await getGalleryImages()) ?? projectImages
   return (
     <>
       <PageHero
@@ -95,7 +99,7 @@ export default function GalleryPage() {
           </h2>
         </div>
         <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {projectImages.map((image, i) => (
+          {galleryImages.map((image, i) => (
             <div
               key={image.src}
               className={

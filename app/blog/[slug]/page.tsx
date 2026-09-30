@@ -3,8 +3,8 @@ import { notFound } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { blogPosts, getPost, formatDate } from "@/lib/blog"
-import { getService } from "@/lib/services"
+import { formatDate } from "@/lib/blog"
+import { getPost, getPosts, getServices } from "@/lib/cms"
 import { pageMetadata } from "@/lib/seo"
 import { Breadcrumbs } from "@/components/breadcrumbs"
 import { Section } from "@/components/section"
@@ -12,8 +12,10 @@ import { CheckList } from "@/components/prose-list"
 import { CtaBand } from "@/components/cta-band"
 import { site } from "@/lib/site"
 
-export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }))
+export const revalidate = 60
+
+export async function generateStaticParams() {
+  return (await getPosts()).map((post) => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({
@@ -22,7 +24,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  const post = getPost(slug)
+  const post = await getPost(slug)
   if (!post) return {}
   return pageMetadata({
     title: post.metaTitle,
@@ -38,11 +40,11 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const post = getPost(slug)
+  const [post, services] = await Promise.all([getPost(slug), getServices()])
   if (!post) notFound()
 
   const related = post.relatedServices
-    .map((s) => getService(s))
+    .map((s) => services.find((item) => item.slug === s))
     .filter((s): s is NonNullable<typeof s> => Boolean(s))
 
   const articleSchema = {
@@ -50,7 +52,7 @@ export default async function BlogPostPage({
     "@type": "BlogPosting",
     headline: post.title,
     description: post.metaDescription,
-    image: `${site.url}${post.image}`,
+    image: post.image.startsWith("http") ? post.image : `${site.url}${post.image}`,
     datePublished: post.date,
     dateModified: post.date,
     author: { "@type": "Organization", name: site.name },

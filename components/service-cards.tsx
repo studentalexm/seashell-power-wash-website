@@ -1,10 +1,10 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { services } from "@/lib/services"
+import { getServices } from "@/lib/cms"
 import { Reveal } from "@/components/reveal"
 
-export function ServiceCards({ exclude }: { exclude?: string }) {
-  const list = services.filter((s) => s.slug !== exclude)
+export async function ServiceCards({ exclude }: { exclude?: string }) {
+  const list = (await getServices()).filter((s) => s.slug !== exclude)
   return (
     <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {list.map((service, i) => {

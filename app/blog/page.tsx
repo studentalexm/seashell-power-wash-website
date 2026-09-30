@@ -2,8 +2,8 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { blogPosts, formatDate } from "@/lib/blog"
-import { getSanityPosts } from "@/lib/sanity"
+import { formatDate } from "@/lib/blog"
+import { getPosts } from "@/lib/cms"
 import { pageMetadata } from "@/lib/seo"
 import { PageHero } from "@/components/page-hero"
 import { Section } from "@/components/section"
@@ -16,21 +16,10 @@ export const metadata: Metadata = pageMetadata({
   path: "/blog",
 })
 
+export const revalidate = 60
+
 export default async function BlogPage() {
-  const sanityPosts = await getSanityPosts()
-  const posts = sanityPosts.length
-    ? sanityPosts.map((post) => ({
-        slug: post.slug?.current ?? post._id,
-        title: post.title ?? "Untitled post",
-        excerpt: post.excerpt ?? "",
-        date: post.publishedAt ?? new Date().toISOString(),
-        category: post.category ?? "Tips",
-        image: post.imageUrl ?? "/images/placeholder.svg",
-        imageAlt: post.title ?? "Seashell Power Wash blog post",
-        readingTime: "5 min read",
-      }))
-    : blogPosts
-  const [featured, ...rest] = posts
+  const [featured, ...rest] = await getPosts()
 
   return (
     <>

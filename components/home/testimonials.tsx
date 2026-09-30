@@ -1,11 +1,12 @@
 import { Quote } from "lucide-react"
+import { getTestimonials, type Testimonial } from "@/lib/cms"
 
 /**
  * Representative testimonials for the template. Replace the quotes and names
  * below with real, verifiable customer reviews before launch. No review or
  * rating schema is emitted, so these do not create misleading structured data.
  */
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
     quote:
       "Our siding had gone green on the shaded side and they brought it right back without blasting the house. You can tell they knew exactly how much pressure to use.",
@@ -26,10 +27,11 @@ const testimonials = [
   },
 ]
 
-export function Testimonials() {
+export async function Testimonials() {
+  const items = (await getTestimonials())?.slice(0, 6) ?? testimonials
   return (
     <div className="grid gap-6 md:grid-cols-3">
-      {testimonials.map((testimonial) => (
+      {items.map((testimonial) => (
         <figure
           key={testimonial.quote}
           className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-lg"
@@ -43,10 +45,12 @@ export function Testimonials() {
           </blockquote>
           <figcaption className="mt-5 text-sm font-medium text-muted-foreground">
             {testimonial.name}
-            <span className="text-muted-foreground/70">
-              {" "}
-              · {testimonial.where}
-            </span>
+            {testimonial.where && (
+              <span className="text-muted-foreground/70">
+                {" "}
+                · {testimonial.where}
+              </span>
+            )}
           </figcaption>
         </figure>
       ))}
