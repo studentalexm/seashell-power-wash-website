@@ -8,7 +8,7 @@ export function Hero() {
     <section className="relative isolate overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/images/charleston-home-exterior-pressure-washing-hero.png"
+          src="/images/house-washing-charleston-sc-home-exterior.png"
           alt="Freshly cleaned Charleston Lowcountry home exterior at golden hour"
           fill
           priority

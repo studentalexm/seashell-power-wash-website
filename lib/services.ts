@@ -50,7 +50,7 @@ export const services: Service[] = [
     icon: Home,
     cardSummary:
       "Gentle soft washing that lifts algae, mildew, and salt film from siding without high-pressure damage.",
-    image: "/images/house-washing-lowcountry-home.png",
+    image: "/images/house-washing-daniel-island-sc.png",
     imageAlt:
       "Freshly soft-washed white Lowcountry home with a clean porch and blue shutters",
     intro:
@@ -157,7 +157,7 @@ export const services: Service[] = [
     icon: Sparkles,
     cardSummary:
       "Streak-free interior and exterior glass, plus frames and sills, for a brighter view.",
-    image: "/images/window-cleaning-coastal-home.png",
+    image: "/images/window-cleaning-isle-of-palms-sc.png",
     imageAlt:
       "Professional cleaning a large coastal home window to a streak-free finish",
     intro:
@@ -210,7 +210,7 @@ export const services: Service[] = [
     icon: CloudRain,
     cardSummary:
       "Soft-wash roof cleaning that removes black algae streaks without high-pressure damage.",
-    image: "/images/roof-cleaning-soft-wash.png",
+    image: "/images/house-washing-roof-soft-wash-sullivans-island-sc.png",
     imageAlt:
       "Roof with dark algae streaking on one section and clean shingles on the cleaned section",
     intro:
@@ -263,7 +263,7 @@ export const services: Service[] = [
     icon: Grid3x3,
     cardSummary:
       "Even, streak-free cleaning for driveways, walkways, and concrete surfaces.",
-    image: "/images/driveway-concrete-cleaning.png",
+    image: "/images/house-washing-driveway-cleaning-mount-pleasant-sc.png",
     imageAlt:
       "Concrete driveway being cleaned with a surface cleaner showing an even, brightened finish",
     intro:
@@ -316,7 +316,7 @@ export const services: Service[] = [
     icon: Wind,
     cardSummary:
       "Clear clogged gutters and brighten streaked gutter faces so water flows freely.",
-    image: "/images/gutter-cleaning.png",
+    image: "/images/gutter-cleaning-charleston-sc.png",
     imageAlt: "Clean white gutters along the roofline of a Lowcountry home",
     intro:
       "Gutters do quiet, important work — until they clog. Clearing debris keeps water moving away from your home, and brightening the gutter faces finishes the look after a house wash.",
@@ -368,7 +368,7 @@ export const services: Service[] = [
     icon: Fence,
     cardSummary:
       "Surface-appropriate cleaning for wood, composite, and stone outdoor living spaces.",
-    image: "/images/deck-patio-cleaning.png",
+    image: "/images/house-washing-deck-cleaning-folly-island-sc.png",
     imageAlt: "Clean wooden deck with outdoor furniture on a Lowcountry home",
     intro:
       "Decks and patios are where Lowcountry life happens. We clean wood, composite, and stone with the right pressure and technique so your outdoor space is ready to enjoy — not stripped or splintered.",
@@ -420,7 +420,7 @@ export const services: Service[] = [
     icon: Building2,
     cardSummary:
       "Storefronts, walkways, and building exteriors kept clean, safe, and welcoming.",
-    image: "/images/commercial-exterior-cleaning.png",
+    image: "/images/window-cleaning-commercial-storefront-charleston-sc.png",
     imageAlt:
       "Clean commercial storefront and walkway in a Charleston-area business district",
     intro:

@@ -33,7 +33,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-03-18",
     readingTime: "5 min read",
     category: "Cleaning Methods",
-    image: "/images/house-washing-lowcountry-home.png",
+    image: "/images/house-washing-daniel-island-sc.png",
     imageAlt: "Soft-washed Lowcountry home with clean siding",
     intro:
       "\"Pressure washing\" gets used as a catch-all, but professionals actually rely on two distinct methods. Choosing the right one for each surface is the single biggest factor in getting a great result without damaging your home.",
@@ -89,7 +89,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-02-24",
     readingTime: "4 min read",
     category: "Home Maintenance",
-    image: "/images/charleston-home-exterior-pressure-washing-hero.png",
+    image: "/images/house-washing-charleston-sc-home-exterior.png",
     imageAlt: "Clean Charleston home exterior surrounded by greenery",
     intro:
       "There's no single answer for every home, but the Lowcountry's climate does push most properties toward a more frequent schedule than you'd need farther inland. Here's how to think about it.",
@@ -138,7 +138,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-01-30",
     readingTime: "4 min read",
     category: "Roof Care",
-    image: "/images/roof-cleaning-soft-wash.png",
+    image: "/images/house-washing-roof-soft-wash-sullivans-island-sc.png",
     imageAlt: "Roof with algae streaks on one side and clean shingles on the other",
     intro:
       "Those unsightly dark streaks running down so many Lowcountry roofs have a specific cause, and understanding it explains why you should never let anyone pressure wash them away.",
