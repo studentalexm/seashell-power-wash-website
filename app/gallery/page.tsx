@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import { MapPin } from "lucide-react"
 import { pageMetadata } from "@/lib/seo"
 import { getGalleryImages } from "@/lib/cms"
 import { PageHero } from "@/components/page-hero"
@@ -125,18 +126,24 @@ export default async function GalleryPage() {
               key={job.src}
               className={job.wide ? "md:col-span-2 lg:col-span-3" : undefined}
             >
-              <Image
-                src={job.src}
-                alt={job.alt}
-                width={job.width}
-                height={job.height}
-                sizes={
-                  job.wide
-                    ? "(max-width: 1280px) 100vw, 1200px"
-                    : "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                }
-                className="h-auto w-full rounded-2xl border border-border shadow-sm"
-              />
+              <div className="relative">
+                <Image
+                  src={job.src}
+                  alt={job.alt}
+                  width={job.width}
+                  height={job.height}
+                  sizes={
+                    job.wide
+                      ? "(max-width: 1280px) 100vw, 1200px"
+                      : "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  }
+                  className="h-auto w-full rounded-2xl border border-border shadow-sm"
+                />
+                <p className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full bg-background/90 px-3 py-1.5 text-xs font-semibold text-foreground shadow-sm backdrop-blur-sm sm:text-sm">
+                  <MapPin className="size-4 text-primary" aria-hidden="true" />
+                  {job.location}
+                </p>
+              </div>
               <figcaption className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 <span className="font-semibold text-foreground">{job.service}</span>
                 {" in "}
