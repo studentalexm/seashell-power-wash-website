@@ -239,17 +239,22 @@ export async function getPost(slug: string) {
 export type GalleryImage = { src: string; alt: string }
 
 export async function getGalleryImages(): Promise<GalleryImage[] | null> {
-  const docs = await query<{ title?: string; imageUrl?: string; imageAlt?: string }[]>(
-    `*[_type == "galleryItem" && defined(image.asset)] | order(coalesce(completedAt, _createdAt) desc, _id asc) {
-      title, "imageUrl": image.asset->url, "imageAlt": image.alt
-    }`,
-    "sanity-gallery",
+  const docs = await query<
+  { title?: string; imageUrl?: string; imageAlt?: string; fileName?: string }[]
+  >(
+  `*[_type == "galleryItem" && defined(image.asset)] | order(coalesce(completedAt, _createdAt) desc, _id asc) {
+  title, "imageUrl": image.asset->url, "imageAlt": image.alt, "fileName": image.asset->originalFilename
+  }`,
+  "sanity-gallery",
   )
   if (!docs?.length) return null
   return docs
-    .filter((doc) => doc.imageUrl)
-    .map((doc) => ({
-      src: sizedImage(doc.imageUrl) as string,
+  .filter((doc) => doc.imageUrl)
+  .map((doc) => ({
+  // Sanity's CDN serves a "vanity" file name appended to the URL, so search engines see a descriptive name.
+  src: sizedImage(
+  doc.fileName ? `${doc.imageUrl}/${encodeURIComponent(doc.fileName)}` : doc.imageUrl,
+  ) as string,
       alt: doc.imageAlt ?? doc.title ?? "Seashell Power Wash project",
     }))
 }

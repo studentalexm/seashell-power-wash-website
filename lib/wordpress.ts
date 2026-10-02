@@ -38,7 +38,7 @@ export async function getWordPressPosts(): Promise<BlogPost[] | null> {
       date: post.date.slice(0, 10),
       readingTime: "",
       category: "Lowcountry Home Care",
-      image: "/images/charleston-home-exterior-pressure-washing-hero.png",
+      image: "/images/house-washing-charleston-sc-home-exterior.png",
       imageAlt: post.title.rendered.replace(/<[^>]+>/g, ""),
       intro: post.excerpt.rendered.replace(/<[^>]+>/g, "").trim(),
       sections: [{ paragraphs: [post.content.rendered.replace(/<[^>]+>/g, "").trim()] }],

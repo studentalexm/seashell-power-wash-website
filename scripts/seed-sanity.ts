@@ -122,14 +122,14 @@ async function run() {
   }
 
   const gallery = [
-    {file: '/images/house-washing-lowcountry-home.png', title: 'Lowcountry home soft wash', service: 'House Washing'},
-    {file: '/images/roof-cleaning-soft-wash.png', title: 'Roof algae removal', service: 'Roof Cleaning'},
-    {file: '/images/window-cleaning-coastal-home.png', title: 'Coastal home window cleaning', service: 'Window Cleaning'},
-    {file: '/images/driveway-concrete-cleaning.png', title: 'Concrete driveway cleaning', service: 'Driveway Cleaning'},
-    {file: '/images/deck-patio-cleaning.png', title: 'Deck and patio refresh', service: 'Deck & Patio Cleaning'},
-    {file: '/images/gutter-cleaning.png', title: 'Gutter brightening', service: 'Gutter Cleaning'},
-    {file: '/images/commercial-exterior-cleaning.png', title: 'Commercial storefront cleaning', service: 'Commercial Cleaning'},
-    {file: '/images/charleston-home-exterior-pressure-washing-hero.png', title: 'Charleston home exterior', service: 'House Washing'},
+    {file: '/images/house-washing-daniel-island-sc.png', title: 'Lowcountry home soft wash', service: 'House Washing'},
+    {file: '/images/house-washing-roof-soft-wash-sullivans-island-sc.png', title: 'Roof algae removal', service: 'Roof Cleaning'},
+    {file: '/images/window-cleaning-isle-of-palms-sc.png', title: 'Coastal home window cleaning', service: 'Window Cleaning'},
+    {file: '/images/house-washing-driveway-cleaning-mount-pleasant-sc.png', title: 'Concrete driveway cleaning', service: 'Driveway Cleaning'},
+    {file: '/images/house-washing-deck-cleaning-folly-island-sc.png', title: 'Deck and patio refresh', service: 'Deck & Patio Cleaning'},
+    {file: '/images/gutter-cleaning-charleston-sc.png', title: 'Gutter brightening', service: 'Gutter Cleaning'},
+    {file: '/images/window-cleaning-commercial-storefront-charleston-sc.png', title: 'Commercial storefront cleaning', service: 'Commercial Cleaning'},
+    {file: '/images/house-washing-charleston-sc-home-exterior.png', title: 'Charleston home exterior', service: 'House Washing'},
   ]
   for (const [index, g] of gallery.entries()) {
     tx.createOrReplace({

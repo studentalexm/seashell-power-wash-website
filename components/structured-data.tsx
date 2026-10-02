@@ -31,13 +31,35 @@ export async function LocalBusinessSchema() {
     description: site.description,
     url: site.url,
     telephone: business.phone.e164,
+    email: business.email,
     image: `${site.url}/images/og-seashell-power-wash.png`,
     logo: `${site.url}/images/seashell-logo.png`,
-    areaServed: [
-      "Charleston, SC",
-      "Mount Pleasant, SC",
-      ...locations.map((l) => l.name),
-    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: business.phone.e164,
+      email: business.email,
+      contactType: "customer service",
+      areaServed: "US-SC",
+      availableLanguage: "English",
+    },
+    areaServed: locations.map((l) => ({
+      "@type": "City",
+      name: l.name,
+      url: `${site.url}/service-areas/${l.slug}`,
+    })),
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Exterior cleaning services",
+      itemListElement: services.map((s) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: s.shortName,
+          description: s.cardSummary,
+          url: `${site.url}/services/${s.slug}`,
+        },
+      })),
+    },
     address: {
       "@type": "PostalAddress",
       streetAddress: business.address.street,
@@ -46,6 +68,12 @@ export async function LocalBusinessSchema() {
       postalCode: business.address.postalCode,
       addressCountry: business.address.country,
     },
+    openingHoursSpecification: site.hours.map((h) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: h.days.map((d) => `https://schema.org/${d}`),
+      opens: h.opens,
+      closes: h.closes,
+    })),
     sameAs: [business.social.google, business.social.facebook, business.social.instagram, business.social.linkedin, business.social.yelp].filter(Boolean),
     knowsAbout: services.map((s) => s.shortName),
     makesOffer: services.map((s) => ({
