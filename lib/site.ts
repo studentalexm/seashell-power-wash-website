@@ -40,6 +40,23 @@ export const site = {
     yelp: "https://www.yelp.com/search?find_desc=Seashell+Power+Wash&find_loc=Mount+Pleasant%2C+SC",
   },
   email: "clean@seashellpowerwash.com",
+  // opens/closes use 24-hour time, as required by schema.org.
+  hours: [
+    {
+      label: "Monday – Friday",
+      days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "19:30",
+      display: "8:00 AM – 7:30 PM",
+    },
+    {
+      label: "Saturday – Sunday",
+      days: ["Saturday", "Sunday"],
+      opens: "10:00",
+      closes: "17:00",
+      display: "10:00 AM – 5:00 PM",
+    },
+  ],
 } as const
 
 export const smsHref = (message: string) =>

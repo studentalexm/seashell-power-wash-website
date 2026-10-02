@@ -68,6 +68,12 @@ export async function LocalBusinessSchema() {
       postalCode: business.address.postalCode,
       addressCountry: business.address.country,
     },
+    openingHoursSpecification: site.hours.map((h) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: h.days.map((d) => `https://schema.org/${d}`),
+      opens: h.opens,
+      closes: h.closes,
+    })),
     sameAs: [business.social.google, business.social.facebook, business.social.instagram, business.social.linkedin, business.social.yelp].filter(Boolean),
     knowsAbout: services.map((s) => s.shortName),
     makesOffer: services.map((s) => ({

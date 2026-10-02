@@ -22,6 +22,7 @@ export async function GET() {
     `- Phone (call or text): ${business.phone.display}`,
     `- Email: ${business.email}`,
     `- Website: ${site.url}`,
+    `- Hours: ${site.hours.map((h) => `${h.label} ${h.display}`).join("; ")}`,
     `- Serves: residential homes and commercial properties`,
     `- Service region: ${site.serviceRegion}`,
     `- Free estimates: ${site.url}/contact`,

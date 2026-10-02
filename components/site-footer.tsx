@@ -1,6 +1,7 @@
 import Link from "next/link"
-import { Phone, Mail, MapPin } from "lucide-react"
+import { Phone, Mail, MapPin, Clock } from "lucide-react"
 import { getBusiness } from "@/lib/cms"
+import { site } from "@/lib/site"
 import { footerServiceLinks, footerLocationLinks } from "@/lib/nav"
 import { Logo } from "./logo"
 
@@ -46,6 +47,17 @@ export async function SiteFooter() {
                 <MapPin className="size-4" aria-hidden="true" />
                 Based in {business.base}
               </span>
+              <div className="inline-flex items-start gap-2 text-white/70">
+                <Clock className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+                <dl className="flex flex-col gap-1">
+                  {site.hours.map((h) => (
+                    <div key={h.label} className="flex flex-col">
+                      <dt className="text-white/90">{h.label}</dt>
+                      <dd>{h.display}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
             </div>
           </div>
 
