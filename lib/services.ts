@@ -8,6 +8,7 @@ import {
   Wind,
   Fence,
   Building2,
+  Sun,
 } from "lucide-react"
 
 export type FAQ = { question: string; answer: string }
@@ -461,6 +462,65 @@ export const services: Service[] = [
       },
     ],
     related: ["pressure-washing", "window-cleaning", "driveway-and-concrete-cleaning"],
+  },
+  {
+    slug: "solar-panel-cleaning",
+    navLabel: "Solar Panel Cleaning",
+    shortName: "Solar Panel Cleaning",
+    title: "Solar Panel Cleaning in Charleston & Mount Pleasant",
+    metaTitle: "Solar Panel Cleaning Charleston SC | Seashell Power Wash",
+    metaDescription:
+      "Gentle solar panel cleaning in Charleston, Mount Pleasant, and the islands. Remove salt film, pollen, and bird droppings with purified water and soft brushes. Free estimates.",
+    icon: Sun,
+    cardSummary:
+      "Gentle, spot-free cleaning that clears salt film, pollen, and grime so your panels can soak up more sun.",
+    image: "/images/solar-panel-cleaning-charleston-sc.png",
+    imageAlt:
+      "Technician cleaning rooftop solar panels with a soft brush pole on a Charleston, SC home",
+    intro:
+      "Dirty solar panels make less power. Along the coast, salt spray, pollen, and bird droppings build a film that blocks sunlight. We clean it away gently, so your panels can do their job.",
+    body: [
+      "Charleston's coastal air is hard on solar panels. Salt mist dries into a cloudy film, spring pollen coats the glass yellow, and birds leave spots that rain alone won't wash off. Over time, that buildup can noticeably cut how much energy your system makes.",
+      "We never use high pressure or harsh chemicals on solar panels. Instead, we use purified water and soft-bristle brushes on water-fed poles. Purified water dries clear without spots, and the gentle method protects the panel glass, coatings, seals, and wiring.",
+      "We work carefully around roofing and mounting hardware, and we let you know if we spot anything worth checking, like loose wiring, cracked glass, or critters nesting under the array.",
+    ],
+    includes: [
+      "Soft-brush cleaning of every panel in the array",
+      "Purified-water rinse for a spot-free finish",
+      "Removal of salt film, pollen, dust, and bird droppings",
+      "Cleaning of panel frames and edges",
+      "Visual check for damage or debris under panels",
+      "Before-and-after photos on request",
+    ],
+    bestFor: [
+      "Rooftop residential solar systems",
+      "Ground-mounted solar arrays",
+      "Homes near the ocean or marsh",
+      "Panels under trees or near bird activity",
+    ],
+    faqs: [
+      {
+        question: "Does cleaning solar panels really improve output?",
+        answer:
+          "Yes. Dirt, pollen, and salt film block sunlight from reaching the cells. Clean panels can capture more light, which is especially noticeable after pollen season or in homes close to the coast.",
+      },
+      {
+        question: "Will cleaning damage my panels or void my warranty?",
+        answer:
+          "No. We use soft brushes and purified water with no high pressure or harsh chemicals, which is the gentle approach most panel makers recommend.",
+      },
+      {
+        question: "How often should solar panels be cleaned in Charleston?",
+        answer:
+          "Most Lowcountry homes benefit from cleaning once or twice a year. A cleaning after spring pollen season is a good habit, and homes near the beach may need it more often because of salt spray.",
+      },
+      {
+        question: "Can you clean my solar panels and windows on the same visit?",
+        answer:
+          "Yes. Many customers pair solar panel cleaning with window cleaning or gutter cleaning, so the whole home is done in one trip.",
+      },
+    ],
+    related: ["window-cleaning", "gutter-cleaning", "roof-cleaning"],
   },
 ]
 
