@@ -474,9 +474,9 @@ export const services: Service[] = [
     icon: Sun,
     cardSummary:
       "Gentle, spot-free cleaning that clears salt film, pollen, and grime so your panels can soak up more sun.",
-    image: "/images/solar-panel-cleaning-charleston-sc.png",
+    image: "/images/solar-panel-cleaning-mount-pleasant-sc.png",
     imageAlt:
-      "Technician cleaning rooftop solar panels with a soft brush pole on a Charleston, SC home",
+      "Seashell Power Wash technician in a safety harness cleaning rooftop solar panels with a water-fed soft brush on a waterfront home in Mount Pleasant, SC",
     intro:
       "Dirty solar panels make less power. Along the coast, salt spray, pollen, and bird droppings build a film that blocks sunlight. We clean it away gently, so your panels can do their job.",
     body: [
