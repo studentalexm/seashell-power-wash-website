@@ -25,10 +25,11 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Pressure Washing & Window Cleaning in Charleston, SC`,
+    default: "Pressure Washing Charleston SC | Seashell Power Wash",
     template: `%s | ${site.name}`,
   },
-  description: site.description,
+  description:
+    "Professional pressure washing, house washing, and window cleaning in Charleston and Mount Pleasant, SC. Get a free estimate from Seashell Power Wash today.",
   applicationName: site.name,
   generator: "v0.app",
   keywords: [
