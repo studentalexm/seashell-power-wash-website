@@ -10,9 +10,10 @@ import { Section } from "@/components/section"
 import { CtaBand } from "@/components/cta-band"
 
 export const metadata: Metadata = pageMetadata({
-  title: "Exterior Cleaning Tips & Resources",
+  title: "Exterior Cleaning Tips & Guides | Seashell Power Wash SC Now",
   description:
-    "Guides on soft washing, roof algae, salt-air maintenance, and keeping Charleston-area homes clean. Practical advice from Seashell Power Wash.",
+    "Practical guides on soft washing, roof algae, salt-air upkeep, and keeping Charleston-area
+homes clean, from the expert team at Seashell Power Wash in Call now.",
   path: "/blog",
 })
 
