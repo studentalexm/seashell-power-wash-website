@@ -6,9 +6,10 @@ import { CtaBand } from "@/components/cta-band"
 import { pageMetadata } from "@/lib/seo"
 
 export const metadata: Metadata = pageMetadata({
-  title: "Exterior Cleaning Services in Charleston & Mount Pleasant",
+  title: "Exterior Cleaning Services in Charleston SC | Seashell PW SC",
   description:
-    "Explore our pressure washing, soft washing, house washing, roof cleaning, window cleaning, and more across Charleston and the Lowcountry. Free estimates.",
+    "Pressure washing, soft washing, house washing, roof cleaning, and window cleaning across
+Charleston and the Lowcountry of SC. Free, no-obligation. Reach out now.",
   path: "/services",
 })
 
