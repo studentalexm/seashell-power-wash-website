@@ -8,8 +8,7 @@ import { pageMetadata } from "@/lib/seo"
 export const metadata: Metadata = pageMetadata({
   title: "Exterior Cleaning Services in Charleston SC | Seashell PW SC",
   description:
-    "Pressure washing, soft washing, house washing, roof cleaning, and window cleaning across
-Charleston and the Lowcountry of SC. Free, no-obligation. Reach out now.",
+    "Pressure washing, soft washing, house washing, roof cleaning, and window cleaning across Charleston and the Lowcountry of SC. Free, no-obligation. Reach out now.",
   path: "/services",
 })
 
