@@ -9,9 +9,10 @@ import { Section } from "@/components/section"
 import { CtaBand } from "@/components/cta-band"
 
 export const metadata: Metadata = pageMetadata({
-  title: "Service Areas Across the Charleston Lowcountry",
+  title: "Service Areas in the Charleston SC Lowcountry | Seashell Now",
   description:
-    "Seashell Power Wash serves Charleston, Mount Pleasant, Daniel Island, Isle of Palms, Sullivan's Island, James Island, and Folly Beach with expert exterior cleaning.",
+    "We proudly serve Charleston, Mount Pleasant, Daniel Island, Isle of Palms, Sullivan's Island,
+James Island, and Folly Beach with expert exterior cleaning today.",
   path: "/service-areas",
 })
 
