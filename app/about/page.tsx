@@ -9,11 +9,12 @@ import { CtaBand } from "@/components/cta-band"
 import { site } from "@/lib/site"
 
 export const metadata: Metadata = pageMetadata({
-  title: "About Seashell Power Wash and discussion",
+  title: "About Us",
   description:
-    "Seashell Power Wash is a locally based exterior cleaning company serving Charleston, Mount Pleasant, and the Lowcountry with careful, surface-safe soft washing and pressure washing.",
+    "Meet Seashell Power Wash, your local exterior cleaning team in Mount Pleasant, SC. Serving Charleston and the Lowcountry with soft washing and pressure washing.",
   path: "/about",
 })
+
 
 const values = [
   {
