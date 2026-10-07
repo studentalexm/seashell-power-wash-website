@@ -14,6 +14,13 @@ import { Reveal } from "@/components/reveal"
 import { FAQSchema } from "@/components/structured-data"
 import { EstimateButton } from "@/components/site-buttons"
 
+export const metadata = {
+  title: {
+    absolute: "Pressure Washing Charleston SC | Seashell Power Wash",
+  },
+  description:
+    "Professional pressure washing, house washing, and window cleaning in Charleston and Mount Pleasant, SC. Get a free estimate from Seashell Power Wash today.",
+}
 const homeFaqs = [
   {
     question: "What areas do you serve?",
