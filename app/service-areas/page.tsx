@@ -9,9 +9,9 @@ import { Section } from "@/components/section"
 import { CtaBand } from "@/components/cta-band"
 
 export const metadata: Metadata = pageMetadata({
-  title: "Service Areas in the Charleston SC Lowcountry | Seashell Now",
+  title: "Charleston SC Exterior Cleaning Service Areas | Seashell",
   description:
-    "We proudly serve Charleston, Mount Pleasant, Daniel Island, Isle of Palms, Sullivan's Island, James Island, and Folly Beach with expert exterior cleaning today.",
+    "Explore our exterior cleaning service areas across Charleston, Mount Pleasant, Daniel Island, and nearby Lowcountry communities. Request your free quote.",
   path: "/service-areas",
 })
 
