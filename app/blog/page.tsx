@@ -9,12 +9,17 @@ import { PageHero } from "@/components/page-hero"
 import { Section } from "@/components/section"
 import { CtaBand } from "@/components/cta-band"
 
-export const metadata: Metadata = pageMetadata({
-  title: "Exterior Cleaning Tips & Guides | Seashell Power Wash SC Now",
-  description:
-    "Practical guides on soft washing, roof algae, salt-air upkeep, and keeping Charleston-area homes clean, from the expert team at Seashell Power Wash in Call now.",
-  path: "/blog",
-})
+export const metadata: Metadata = {
+  ...pageMetadata({
+    title: "Exterior Cleaning Tips & Guides | Seashell Power Wash SC Now",
+    description:
+      "Practical guides on soft washing, roof algae, salt-air upkeep, and keeping Charleston-area homes clean, from the expert team at Seashell Power Wash in Call now.",
+    path: "/blog",
+  }),
+  title: {
+    absolute: "Exterior Cleaning Tips & Guides | Seashell Power Wash SC Now",
+  },
+}
 
 export const revalidate = 60
 
