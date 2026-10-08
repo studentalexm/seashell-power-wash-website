@@ -45,7 +45,7 @@ export const services: Service[] = [
     navLabel: "House Washing",
     shortName: "House Washing",
     title: "House Washing in Charleston & Mount Pleasant",
-    metaTitle: "House Washing in Charleston SC | Seashell Power Wash",
+    metaTitle: "House Washing in Charleston SC | Free Estimates",
     metaDescription:
       "House washing in Charleston SC with gentle soft washing for siding, stucco, and trim. Remove algae, mildew, and salt film. Get a free estimate.",
     icon: Home,
@@ -99,7 +99,7 @@ export const services: Service[] = [
     navLabel: "Pressure Washing",
     shortName: "Pressure Washing",
     title: "Pressure Washing in Charleston & the Lowcountry",
-    metaTitle: "Pressure Washing Charleston SC | Seashell Power Wash",
+    metaTitle: "Pressure Washing Charleston SC | Free Estimates",
     metaDescription:
       "Pressure washing in Charleston SC for concrete, pavers, and hardscapes. Remove dirt, algae, and grime with surface-specific care. Get a free estimate.",
     icon: Droplets,
@@ -152,7 +152,7 @@ export const services: Service[] = [
     navLabel: "Window Cleaning",
     shortName: "Window Cleaning",
     title: "Window Cleaning in Charleston & Mount Pleasant",
-    metaTitle: "Window Cleaning Charleston SC | Seashell Power Wash",
+    metaTitle: "Window Cleaning Charleston SC | Free Estimates",
     metaDescription:
       "Window cleaning in Charleston SC for interior and exterior glass, frames, sills, and tracks. Clear salt film and pollen. Request a free estimate.",
     icon: Sparkles,
@@ -205,7 +205,7 @@ export const services: Service[] = [
     navLabel: "Roof Cleaning",
     shortName: "Roof Cleaning",
     title: "Roof Cleaning in Charleston & the Lowcountry",
-    metaTitle: "Roof Cleaning in Charleston SC | Seashell Power Wash",
+    metaTitle: "Roof Cleaning in Charleston SC | Free Estimates",
     metaDescription:
       "Roof cleaning in Charleston SC with low-pressure soft washing. Remove black algae streaks, moss, and lichen from your roof. Get a free estimate.",
     icon: CloudRain,
@@ -258,7 +258,7 @@ export const services: Service[] = [
     navLabel: "Driveway & Concrete",
     shortName: "Driveway & Concrete Cleaning",
     title: "Driveway & Concrete Cleaning in Charleston",
-    metaTitle: "Driveway and Concrete Cleaning Charleston SC | Seashell",
+    metaTitle: "Driveway and Concrete Cleaning | Charleston SC",
     metaDescription:
       "Driveway and concrete cleaning in Charleston SC for driveways, walkways, and patios. Remove dirt, algae, and organic stains. Get a free estimate.",
     icon: Grid3x3,
@@ -311,7 +311,7 @@ export const services: Service[] = [
     navLabel: "Gutter Cleaning",
     shortName: "Gutter Cleaning",
     title: "Gutter Cleaning in Charleston & Mount Pleasant",
-    metaTitle: "Gutter Cleaning Charleston SC | Seashell Power Wash",
+    metaTitle: "Gutter Cleaning Charleston SC | Free Estimates",
     metaDescription:
       "Gutter cleaning in Charleston SC to remove leaves and debris and check downspout flow. Exterior gutter brightening available. Get a free estimate.",
     icon: Wind,
@@ -363,7 +363,7 @@ export const services: Service[] = [
     navLabel: "Deck & Patio",
     shortName: "Deck & Patio Cleaning",
     title: "Deck & Patio Cleaning in Charleston",
-    metaTitle: "Deck and Patio Cleaning Charleston SC | Seashell",
+    metaTitle: "Deck and Patio Cleaning Charleston SC | Quote",
     metaDescription:
       "Deck and patio cleaning in Charleston SC for wood, composite, stone, and pavers. Remove algae, mildew, and grime with care. Get a free estimate.",
     icon: Fence,
@@ -415,7 +415,7 @@ export const services: Service[] = [
     navLabel: "Commercial Exterior",
     shortName: "Commercial Exterior Cleaning",
     title: "Commercial Exterior Cleaning in Charleston",
-    metaTitle: "Commercial Exterior Cleaning Charleston SC | Seashell",
+    metaTitle: "Commercial Exterior Cleaning in Charleston SC",
     metaDescription:
       "Commercial exterior cleaning in Charleston SC for storefronts, building facades, and walkways. Ask about recurring service. Get a free estimate.",
     icon: Building2,
@@ -468,7 +468,7 @@ export const services: Service[] = [
     navLabel: "Solar Panel Cleaning",
     shortName: "Solar Panel Cleaning",
     title: "Solar Panel Cleaning in Charleston & Mount Pleasant",
-    metaTitle: "Solar Panel Cleaning Charleston SC | Seashell",
+    metaTitle: "Solar Panel Cleaning Charleston SC | Free Quote",
     metaDescription:
       "Solar panel cleaning in Charleston SC with purified water and soft brushes. Remove salt film, pollen, and bird droppings. Get a free estimate.",
     icon: Sun,
